@@ -34,8 +34,10 @@ namespace myConsoleProject.cs
             Console.WriteLine(feedback + "\n");
 
             Console.WriteLine("How many hours did you study today?");
-            ushort hoursStudied = 8;
-            Console.WriteLine(hoursStudied);
+            ushort hoursStudied = 10;
+            Console.WriteLine(hoursStudied + "\n");
+
+            Console.WriteLine("Thank you for your answers. An Instructor will respond to this shortly. Have a great day!");
 
             Console.ReadLine();
 
