@@ -6,7 +6,6 @@ namespace myConsoleProject.cs
     {
         static void Main()
         {
-
             Console.WriteLine("The Tech Academy\nStudent Daily Report:\n");
 
             Console.WriteLine("What is your name?");
@@ -40,7 +39,6 @@ namespace myConsoleProject.cs
             Console.WriteLine("Thank you for your answers. An Instructor will respond to this shortly. Have a great day!");
 
             Console.ReadLine();
-
         }
     }
 }
