@@ -6,10 +6,8 @@ namespace myConsoleProject.cs
     {
         static void Main()
         {
-            Console.WriteLine("What is your name?");
-            string name = Console.ReadLine();
-            Console.WriteLine("Hello, my name is: \n" + name + "!");
-            Console.Read();
+            Console.WriteLine("Welcome to Acme Accounting Systems \nRemember, we're \"accounting\" on you!");
+            Console.ReadLine();
         }
     }
 }
