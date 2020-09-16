@@ -12,7 +12,7 @@ namespace myConsoleProject.cs
             Console.WriteLine("\n\nWhat is your age?");
             int age = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("\nHave you ever had a DUI? (true or false)");
+            Console.WriteLine("\nTrue or False: Have you ever had a DUI?");
             bool DUI = Convert.ToBoolean(Console.ReadLine());
 
             Console.WriteLine("\nHow many speeding tickets do you have?");
