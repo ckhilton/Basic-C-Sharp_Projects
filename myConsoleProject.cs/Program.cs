@@ -48,7 +48,7 @@ namespace myConsoleProject.cs
                 else
                 {
                     float quote = ((width * height * length) * (weight)) / (100);
-                    Console.WriteLine("\nYour estimated total for shipping is: $" + quote);
+                    Console.WriteLine("\nYour estimated total for shipping is: " + string.Format("{0:C}", quote));
                 }
              }
 
