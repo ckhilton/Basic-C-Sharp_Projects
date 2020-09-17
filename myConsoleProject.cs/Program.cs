@@ -7,6 +7,30 @@ namespace myConsoleProject.cs
     {
         static void Main()
         {
+            //INSTANTIATE ONE-DIMENSIONAL ARRAY OF STRINGS
+            string[] strArray = { "Happy", "Joy", "Glad", "Smile" };
+            //ASK USER TO SELECT AN INDEX
+            Console.WriteLine("Please select an index value between 0 and 3:\n");
+            //READ USER INPUT AND PASS INTO INTEGER VARIABLE CALLED 'strIndex'
+            int strIndex = Convert.ToInt32(Console.ReadLine());
+            //DISPLAY THE STRING AT THE INDEX THE USER CHOOSES IN 'strArray'
+            Console.WriteLine("\n\tThe word you chose at index " + strIndex + " is: " + "\"" + strArray[strIndex] + "\"");
+
+            //==== PROGRAM PAUSE ====
+            Console.WriteLine("\nPRESS ENTER TO CONTINUE");
+            Console.ReadLine();
+
+            //INSTANTIATE ONE-DIMENSIONAL ARRAY OF INTEGERS
+            int[] intArray = { 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 };
+            // ASK USER TO SELECT AN INDEX
+            Console.WriteLine("Please select an index value between 0 and 10:\n");
+            //READ USER INPUT AND PASS INTO VARIABLE CALLED 'intIndex'
+            int intIndex = Convert.ToInt32(Console.ReadLine());
+            //DISPLAY THE STRING AT THE INDEX THE USER CHOOSES IN 'intArray'
+            Console.WriteLine("\n\tThe integer you chose at index " + intIndex + " is: " + intArray[intIndex]);
+
+            Console.ReadLine();
+
 
             //=========== LIST FUNDAMENTALS =======================
 
@@ -58,7 +82,7 @@ namespace myConsoleProject.cs
             //STORING INFORMATION AS BINARY INFORMATION (FOR VERY LARGE QUANTITIES OF DATA)
             //byte[] byteArray = new byte[5000];
 
-           //Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }
