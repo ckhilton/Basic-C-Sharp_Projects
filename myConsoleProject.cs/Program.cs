@@ -10,6 +10,40 @@ namespace myConsoleProject.cs
     {
         static void Main(string[] args)
         {
+
+            //CONSOLE APP ASSSIGNMENT STEP 197
+            Console.WriteLine("//===== CONSOLE APP ASSIGNMENT STEP 197 =====");
+
+            //INSTANTIATE ARRAY OF STRINGS WITH NAMES
+            string[] phrases = { "\tHello, ", "\tIt's nice to meet you, ",
+                "\tI once had a pet named ", "\tPlease don't be mad about that, ",
+                "\tI was totally just kidding, ", "\tCool, I'm glad we can still be friends, ",
+                "\tNice chatting with you. Goodbye for now, " };
+            //ASK FOR USER INPUT
+            Console.WriteLine("\nHey there, what's your first name?\n");
+            string name = Console.ReadLine();
+            //GIVE THE USER INSTRUCTIONS
+            Console.WriteLine("\n\t(PRESS ENTER TO CONTINUE THROUGH EACH LINE)");
+            //ITERATE THROUGH EACH STRING
+            for (int p = 0; p < phrases.Length; p++)
+            {      
+                //PAUSE AFTER EACH LINE IS PRINTED
+                //Console.ReadLine();
+                Console.WriteLine(phrases[p] + name + ".");
+            }
+
+            ////CONSOLE APP ASSSIGNMENT STEP 198
+            //Console.WriteLine("//===== CONSOLE APP ASSIGNMENT STEP 198 =====");
+
+
+            //foreach (string phrase in phrases)
+            //{
+            //    Console.WriteLine(phrase + name);
+            //}
+
+            Console.ReadLine();
+
+
             //ITERATION
 
             ////INSTANTIATE INTEGER ARRAY WITH TEST SCORES
