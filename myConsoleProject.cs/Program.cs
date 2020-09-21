@@ -145,107 +145,204 @@ namespace myConsoleProject.cs
 
             //============= CONSOLE APP ASSSIGNMENT STEP 201 ====================
             Console.WriteLine("//===== CONSOLE APP ASSIGNMENT STEP 201 =====");
-            Console.WriteLine("\nPRESS ENTER TO VIEW A LIST OF PEOPLE I CLIMB WITH");
+            Console.WriteLine("\nPRESS ENTER TO VIEW A LIST A FEW OF THE PEOPLE I CLIMB WITH");
             Console.ReadLine();
+            //MANUALLY PRINT A LIST OF MY CLIMBING PARTNERS TO THE CONSOLE
             Console.WriteLine("\tCLIMBING PARTNERS:" +
                 "\n\n\tMike\n\tBrad" +
                 "\n\tScott\n\tNathan" +
                 "\n\tJohn\n\tWes" +
-                "\n\tJason\n\tZac");
+                "\n\tJason\n\tLuis");
+            //INSTANTIATE LIST OF THE LATEST PEOPLE I'VE BEEN CLIMBING WITH
+            List<string> partnerList = new List<string>() { "luis", "scott", "john", "mike", "john", "jason", "scott", "brad", "nathan", "wes", "nathan", "wes", "jason", "brad", "mike" };
+            //CONVERT TO AN ARRAY FOR LATER SEARCH
+            String[] partnerArray = partnerList.ToArray();
+
             //ASK USER TO SEARCH FOR A FINALIST NAME IN THE LIST
             Console.WriteLine("\nNOW TYPE ANY NAME FROM ABOVE " +
                 "AND SEE HOW MANY TIMES AGO I CLIMBED WITH EACH PARTNER.\n");
-            //INSTANTIATE LIST OF ACTUAL FINALISTS
-            //List<string> partnerList = new List<string>() { "NONE", "scott", "mike", "jason", "scott", "brad", "nathan", "wes", "nathan", "wes", "jason", "brad", "mike" };
-            string[] partnerArray = { "NONE", "scott", "mike", "jason", "scott", "brad", "nathan", "wes", "nathan", "wes", "jason", "brad", "mike" };
+            //SETUP VARIABLE TO CONTROL DO-WHILE LOOP
+            bool searching = true;
 
-            ////store user input and store as variable 'inputpartner'
-            string inputPartner = Console.ReadLine();
-            ////CONTROL USER INPUT
-            //string partnerLower = inputPartner.ToLower();
-
-            int number = Array.IndexOf(partnerArray, inputPartner);
-
-            foreach (string partner in partnerArray)
+            do
             {
-                if (partner == inputPartner)
+                //STORE USER INPUT AND STORE AS VARIABLE 'inputPartner'
+                string partnerInput = Console.ReadLine();
+                //CONTROL USER INPUT
+                string partnerLower = partnerInput.ToLower();
+                //ASSIGN VARIABLES FOR INDEX SEARCHES FROM USER INPUT
+                int partnerFirstIndex = Array.IndexOf(partnerArray, partnerLower);
+                int partnerLastIndex = Array.LastIndexOf(partnerArray, partnerLower);
+
+                //CONTROL CONDITION FOR INDEX ZERO (PLANS ARE TENTATIVE AND I HAVE NOT CLIMBED WITH LUIS EVER BEFORE)
+                if (partnerLower == "luis")
                 {
-
-                    Console.WriteLine(number);
+                    Console.WriteLine("\n\tI'VE CLIMBED WITH " + partnerLower.ToUpper() + " EXACTLY... " + partnerFirstIndex + " TIMES BEFORE, BUT WE'VE MADE TENTATIVE PLANS FOR AFTER SCHOOL!" +
+                        "\n\n\tTRY SEARCHING ANOTHER NAME, OR PRESS \"X\" TO GO TO THE NEXT DRILL.\n", partnerLower, partnerFirstIndex);
                 }
+                //MAIN CONDITIONS TO BE MET FOR THE REST OF THE PARTNERS
+                else if (partnerArray.Contains(partnerLower))                                    
+                {                  
+                    Console.WriteLine("\n\tI CLIMBED WITH " + partnerLower.ToUpper() + " " + partnerFirstIndex + " WEEKS AGO, AND ALSO " + partnerLastIndex + " WEEKS AGO." +
+                        "\n\n\tTRY SEARCHING ANOTHER NAME, OR PRESS \"X\" TO GO TO THE NEXT DRILL.\n", partnerLower, partnerFirstIndex, partnerLastIndex);                       
+                }                
+                //OPTION FOR USER TO EXIT LOOP IF DESIRED
+                else if (partnerInput == "x") 
+                {
+                    //STOP LOOP
+                    searching = false;
+                }               
+                else
+                {
+                    //MESSAGE TELLING USER THAT TEXT IS NOT VALID
+                    Console.WriteLine("\n\tNOT A VALID ENTRY FROM THE LIST. PLEASE CHECK THE SPELLING AND TRY ANOTHER NAME.\n");
+                }               
             }
-
-
-
-
-
-
-            //bool find = true;
-
-            //do
-            //{
-            //    //STORE USER INPUT AND STORE AS VARIABLE 'inputPartner'
-            //    string inputPartner = Console.ReadLine();
-            //    //CONTROL USER INPUT
-            //    string partnerLower = inputPartner.ToLower();
-
-            //    //BRANCHING CONDITIONS TO BE MET
-            //    //if (partnerArray.Contains(partnerLower))
-            //    //{
-            //    //string[] partnerArray = partnerList.ToArray();
-
-            //    //int i = 0;
-
-            //    //int indexOfChoice = Convert.ToInt32(partnerList.IndexOf(partnerLower));
-
-            //    //int[] index = new int[partnerArray.Length];
-
-            //    //for (int partner in partnerArray)
-            //    //{
-            //    for (int i = 0; i < partnerArray.Count(); i++)
-            //    {
-            //        foreach (int partner in partnerArray[i])
-            //        {
-            //            if ()
-                        
-
-            //            }
-                        
-
-            //            //GIVE USER THE NAME AND PLACE OF THE CONTESTANT IN THE TOURNAMENT (PLACE = INDEX NUMBER)
-            //            Console.WriteLine("\n\t" + partnerLower.ToUpper() + " WENT CLIMBING WITH ME THESE TIMES: " + partnerArray[i] +
-
-
-            //            "\n\n\tENTER ANOTHER PARTNER NAME OR PRESS 'X' TO MOVE ON ");
-            //        }
-
-            //    }
-
-                
-                   
-                    
-                    
-                
-
-            //    //}
-            //    //OPTION TO EXIT LOOP IF DESIRED
-            //    //else if (inputPartner == "x")
-            //    //{
-            //    //    //STOP LOOP
-            //    //    find = false;
-            //    //}
-            //    //else
-            //    //{
-            //    //    Console.WriteLine("\nNOT A VALID ENTRY FROM THE LIST. PLEASE CHECK THE SPELLING AND TRY ANOTHER NAME.\n");
-            //    //}
-                
-            //}
-            //while (find);
+            while (searching);
 
             Console.ReadLine();
         }
     }
 }
+
+
+
+
+
+
+//do
+//{
+//    if (partnerList.Contains(Console.ReadLine()))
+//    {
+//        switch (partnerLower)
+//        {
+//            case "Luis":
+//                Console.WriteLine("\nI JUST MET " + partnerList.toUpper() + "  AND I HAVEN'T CLIMBED WITH HIM YET, BUT WE HOPE TO CLIMB TOGETHER SOON.");
+//                partnerLower = Console.ReadLine();
+//                break;
+//            case "scott":
+//                //if (partnerLower.Contains("scott")
+//                Console.WriteLine("\nI CLIMBED WITH " + partnerList.Contains("scott") + " 1 WEEK AGO AND 4 WEEKS AGO. SEARCH ANOTHER NAME.");
+//                partnerLower = Console.ReadLine();
+//                break;
+//            case "mike":
+//                Console.WriteLine("\nI CLIMBED WITH " + partnerLower.ToUpper() + " 2 WEEKS AGO AND 12 WEEKS AGO.");
+//                partnerLower = Console.ReadLine();
+//                break;
+//            case "jason":
+//                Console.WriteLine("\nI CLIMBED WITH " + partnerLower.ToUpper() + "3 WEEKS AGO AND 10 WEEKS AGO.");
+//                partnerLower = Console.ReadLine();
+//                break;
+//            case "brad":
+//                Console.WriteLine("\nI CLIMBED WITH " + partnerLower.ToUpper() + " 4 WEEKS AGO AND 11 WEEKS AGO.");
+//                partnerLower = Console.ReadLine();
+//                break;
+//            case "nathan":
+//                Console.WriteLine("\nI CLIMBED WITH " + partnerLower.ToUpper() + " 5 WEEKS AGO AND 7 WEEKS AGO.");
+//                partnerLower = Console.ReadLine();
+//                break;
+//            default:
+//                Console.WriteLine("\nSORRY, THAT IS NOT A VALID ENTRY. PLEASE CHECK YOUR SPELLING AND TRY AGAIN.");
+//                partnerLower = Console.ReadLine();
+//                break;
+//        }
+//    }
+//    while (searching) ;
+
+
+
+////SETUP DO WHILE LOOP
+//bool searching = true;
+
+
+
+
+
+
+
+
+//////store user input and store as variable 'inputpartner'
+//string inputPartner = Console.ReadLine();
+//////CONTROL USER INPUT
+////string partnerLower = inputPartner.ToLower();
+
+//int number = Array.IndexOf(partnerArray, inputPartner);
+
+//foreach (string partner in partnerArray)
+//{
+//    if (partner == inputPartner)
+//    {
+
+//        Console.WriteLine(number);
+//    }
+//}
+
+
+
+
+
+
+//bool find = true;
+
+//do
+//{
+//    //STORE USER INPUT AND STORE AS VARIABLE 'inputPartner'
+//    string inputPartner = Console.ReadLine();
+//    //CONTROL USER INPUT
+//    string partnerLower = inputPartner.ToLower();
+
+//    //BRANCHING CONDITIONS TO BE MET
+//    //if (partnerArray.Contains(partnerLower))
+//    //{
+//    //string[] partnerArray = partnerList.ToArray();
+
+//    //int i = 0;
+
+//    //int indexOfChoice = Convert.ToInt32(partnerList.IndexOf(partnerLower));
+
+//    //int[] index = new int[partnerArray.Length];
+
+//    //for (int partner in partnerArray)
+//    //{
+//    for (int i = 0; i < partnerArray.Count(); i++)
+//    {
+//        foreach (int partner in partnerArray[i])
+//        {
+//            if ()
+
+
+//            }
+
+
+//            //GIVE USER THE NAME AND PLACE OF THE CONTESTANT IN THE TOURNAMENT (PLACE = INDEX NUMBER)
+//            Console.WriteLine("\n\t" + partnerLower.ToUpper() + " WENT CLIMBING WITH ME THESE TIMES: " + partnerArray[i] +
+
+
+//            "\n\n\tENTER ANOTHER PARTNER NAME OR PRESS 'X' TO MOVE ON ");
+//        }
+
+//    }
+
+
+
+
+
+
+
+//    //}
+//    //OPTION TO EXIT LOOP IF DESIRED
+//    //else if (inputPartner == "x")
+//    //{
+//    //    //STOP LOOP
+//    //    find = false;
+//    //}
+//    //else
+//    //{
+//    //    Console.WriteLine("\nNOT A VALID ENTRY FROM THE LIST. PLEASE CHECK THE SPELLING AND TRY ANOTHER NAME.\n");
+//    //}
+
+//}
+//while (find);
 
 
 
