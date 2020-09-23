@@ -11,7 +11,7 @@ namespace myConsoleProject.cs
         static void Main(string[] args)
         {
             //========================== STEP 207 ASSIGNMENT ==============================
-            Console.Write("\n=========================== STEP 207 ASSIGNMENT =============================\n" +
+            Console.Write("\n=========================== STEP 207 ASSIGNMENT ===========================\n" +
                 "\n\t(PRESS ENTER TO DISPLAY A LIST OF MY CHOSEN INTEGERS)\n");
             Console.ReadLine();
 
@@ -35,7 +35,7 @@ namespace myConsoleProject.cs
                 {                    
                     
                     //GET USER INPUT
-                    Console.WriteLine("TYPE IN ANY RANDOM NUMBER YOU WANT\n");
+                    Console.WriteLine("\tTYPE IN ANY RANDOM INTEGER YOU WANT\n");
                     //STORE USER INPUT IN VARIABLE
                     int userNumber = Convert.ToInt32(Console.ReadLine());                                                                               
                     //CREATE LOOP
@@ -50,33 +50,43 @@ namespace myConsoleProject.cs
                 //DIVIDE BY ZERO CATCH
                 catch (DivideByZeroException ex)
                 {
-                    Console.WriteLine("\nNICE TRY! YOU " + ex.Message.ToUpper() + " PLEASE CHOOSE A NON-ZERO NUMBER." +
-                        "\n\nPRESS ENTER TO LEAVE THE TRY-CATCH BLOCK");
+                    Console.WriteLine("\n\tNICE TRY THERE! BUT........ " +
+                        "\n\n\t- YOU " + ex.Message.ToUpper() +
+                        "\n\n\t- COME ON NOW, CHOOSE ANY OTHER INTEGER THAN ZERO." +
+                        "\n\n\t(PRESS ENTER TO LEAVE THE TRY-CATCH BLOCK)");
                     Console.ReadLine();
                     
                 }
                 //WRONG FORMAT CATCH
                 catch (FormatException ex)
                 {
-                    Console.WriteLine("\nTISK TISK! TEXT NOT ALLOWED. NULL IS NOT ACCEPTABLE EITHER!" +
-                        "\n\nPRESS ENTER TO LEAVE THE TRY-CATCH BLOCK");
+                    Console.WriteLine("\n\tTISK TISK, WRONG FORMAT!!! " +
+                        "\n\n\t   - TEXT NOT ALLOWED. " +
+                        "\n\n\t   - WHOLE NUMBERS ONLY. " +
+                        "\n\n\t   - NULL IS NOT ACCEPTABLE EITHER" +
+                        "\n\n\t(PRESS ENTER TO LEAVE THE TRY-CATCH BLOCK)");
                     Console.ReadLine();                   
                 }
-                //GENERAL EXCEPTION CATCH
+                //GENERAL EXCEPTION CATCH (MAY NOT BE NECESSARY HERE, OTHER THAN IF TOO LARGE OF AN INTEGER WERE ENTERED)
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message.ToUpper() +
-                        "\n\nPRESS ENTER TO LEAVE THE TRY-CATCH BLOCK");
+                    Console.WriteLine("\n\tEASY DOES IT THERE!!!" +
+                        "\n\n\t- YOUR" + ex.Message.ToUpper() +
+                        "\n\n\t- NOT TOO BIG." +
+                        "\n\n\t- NOT TOO NEGATIVE" +
+                        "\n\n\t- NICE AND EASY..." +
+                        "\n\n\t(PRESS ENTER TO LEAVE THE TRY-CATCH BLOCK)");
                     Console.ReadLine();
                 }
                 //INSTRUCTIONS TO USER (***NOTE TO SELF: FINALLY BLOCK ALWAYS EXECUTES NO MATTER WHAT)
                 finally
                 {
                     //PROGRAM NOTE
-                    Console.Write("\n===== THE PROGRAM HAS NOW EMERGED FROM THE TRY/CATCH BLOCK. =====\n" +
-                        "\n\t  *** (PRESS ENTER TO TEST ANOTHER INPUT) ***\n\n\t\t\t" +
-                        "     OR\n\n" +
-                        "\t    XXX (PRESS \'X\' THEN ENTER TO EXIT) XXX\n");
+                    Console.Write("\n================ THE PROGRAM HAS NOW EMERGED FROM THE TRY/CATCH BLOCK ================\n\n" +
+                        "\n\t\t      **** (PRESS ENTER TO TEST ANOTHER INPUT) ****\n\n\t\t\t" +
+                        "\t        OR\n\n" +
+                        "\t\t         XXX (PRESS \'X\' THEN ENTER TO EXIT) XXX\n\n" +
+                        "\n======================================================================================\n\n");
                     string exit = Console.ReadLine();
                     //OPTION TO EXIT WITH CONTROLLED CASE SENSITIVITY
                     if ((exit == "x") || (exit == "X"))
