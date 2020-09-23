@@ -67,7 +67,7 @@ namespace myConsoleProject.cs
                         "\n\n\t(PRESS ENTER TO LEAVE THE TRY-CATCH BLOCK)");
                     Console.ReadLine();                   
                 }
-                //GENERAL EXCEPTION IF TOO LARGE OF OR TOO SMALL OF AN INTEGER WERE ENTERED
+                //GENERAL CATCH IF TOO LARGE OF OR TOO SMALL OF AN INTEGER WERE ENTERED
                 catch (Exception ex)
                 {
                     Console.WriteLine("\n\tEASY DOES IT THERE!!!" +
