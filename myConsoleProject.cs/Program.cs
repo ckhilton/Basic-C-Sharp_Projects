@@ -43,9 +43,20 @@ namespace myConsoleProject.cs
             //INSTANTIATE LIST OF STRINGS WITH NAMES
             List<int> numbers = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            //SET UP A WHILE LOOP AND THEN FIX IT WITH A DO-WHILE LOOP
+            //INFINITE LOOP THAT NEEDS FIXING
+            //while (numList)
+            //{
+            //    //ITERATE THROUGH EACH NUMBER
+            //    foreach (int number in numbers)
+            //    {
+            //        Console.WriteLine(number);
+            //    }
+            //}
+
+            //CREATE BOOLEAN VARIABLE FOR DO-WHILE LOOP CONTROL
             bool numList = true;
 
+            //FIXED LOOP
             do
             {
                 //ITERATE THROUGH EACH NUMBER
@@ -207,32 +218,39 @@ namespace myConsoleProject.cs
 
             //============================== CONSOLE APP ASSIGNMENT STEP 202 ==================================
             Console.WriteLine("//============================== CONSOLE APP ASSIGNMENT STEP 202 ==================================");
-            Console.WriteLine("\nPRESS ENTER FOR A LIST ADJECTIVES.");
+            Console.WriteLine("\nPRESS ENTER TO SEE THE ADJECTIVES STORED IN MY LIST OF STRINGS.");
             Console.ReadLine();
             Console.WriteLine("ADJECTIVES LIST:" +
                 "\n\n\tAWESOME\n\tHAPPY" +
                 "\n\tHANGRY\n\tSLOW" +
                 "\n\tGOOD\n\tRAINY" +
                 "\n\tFUN\n\tSMART");
-            Console.WriteLine("\nSOME OF THESE ADJECTIVES ARE LISTED MORE THAN ONCE IN THE LIST \"adjectiveList\"." +
-                "\n\nNOW PRESS ENTER TO SEE WHICH ADJECTIVES ARE DUPLICATES IN THE LIST.");
+            Console.WriteLine("\nSOME OF THESE ADJECTIVES OCCUR MORE THAN ONCE IN THE COLLECTION" +
+                "\n\nPRESS ENTER TO SEE WHEN EACH ADJECTIVE APPEARS MORE THAN ONCE IN IN THE LIST.");
             Console.ReadLine();
-            //INSTANTIATE LIST OF STRINGS USING THE WORDS IN MY SENTENCE
-            List<string> adjectiveList = new List<string>() { "AWESOME", "RAINY", "HAPPY", "HANGRY", "SLOW", "GOOD", "RAINY", "FUN", "HANGRY", "SMART" };         
-                     
-            foreach (string adjective in adjectiveList)
+            //INSTANTIATE LIST OF STRINGS 
+            List<string> adjectiveList = new List<string>() { "AWESOME", "RAINY", "HAPPY", "HANGRY", "SLOW", "GOOD", "RAINY", "FUN", "HANGRY", "SMART" };
+            //CONVERT LIST TO DICTIONARY GIVING EACH ITEM A KVP WITH AN INTEGER AND A STRING
+            var adjectives = adjectiveList.Select((x, i) => new { x, i })
+                    .ToDictionary(a => a.i, a => a.x);
+
+            foreach (var index in adjectives)
             {
+                //CREATE VARIABLES TO GET INDICES AND VALUES FOR THE LIST  
+                int id = index.Key;
+                string adjective = index.Value;             
                 
-                if ((adjective == "RAINY") || (adjective == "HANGRY"))
+                //CONDITIONAL STATEMENT FOR ACTION ON SPECIFIC INDICES              
+                if (( id == 6) || (id == 8)) 
                 {
-                    Console.WriteLine("\t" + adjective + " (EXISTS ONE OTHER TIME IN THE LIST)");
+                    Console.WriteLine("\t" + adjective + "\t HAS ALREADY APPEARED ONCE BEFORE IN THE LIST");
                 }
                 else
                 {
-                    Console.WriteLine("\t" + adjective);
+                    Console.WriteLine("\t" + adjective + "\t HAS ONLY APPEARED ONCE");
                 }
             }
-            Console.Write("\nTHAT'S THE BEST I COULD DO, AND I'M TOTALLY OPEN TO SUGGESTIONS/COACHING!\n\nPRESS ENTER TO EXIT\n\n\n");
+            Console.Write("\n*** THAT'S FOR SURE MY BEST, AND I THINK I ACTUALLY DID THE ASSIGNMENT RIGHT THIS TIME. HOPEFULLY. :) ***\n\nPRESS ENTER TO EXIT\n\n\n");
             Console.ReadKey(true);
         }
     }
